@@ -6,9 +6,34 @@
 </description>
     <link>http://yourdomain.com//</link>
     <atom:link href="http://yourdomain.com//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 Feb 2015 13:17:49 +0100</pubDate>
-    <lastBuildDate>Sun, 08 Feb 2015 13:17:49 +0100</lastBuildDate>
+    <pubDate>Tue, 10 Feb 2015 11:03:28 +0100</pubDate>
+    <lastBuildDate>Tue, 10 Feb 2015 11:03:28 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Week 2 updates..</title>
+        <description>&lt;p&gt;This week:  &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;added SketchUP experience for 
+&lt;a href=&quot;/pages/week2.html&quot;&gt;week 2 assignment&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;TO DO:  &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;adding Openscad experience  &lt;/li&gt;
+  &lt;li&gt;adjust milestones (i don’t like how i wrote them)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 10 Feb 2015 11:00:00 +0100</pubDate>
+        <link>http://yourdomain.com//week2/2015/02/10/week2-updates.html</link>
+        <guid isPermaLink="true">http://yourdomain.com//week2/2015/02/10/week2-updates.html</guid>
+        
+        
+        <category>week2</category>
+        
+      </item>
     
       <item>
         <title>research about final project</title>
