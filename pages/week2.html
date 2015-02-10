@@ -183,7 +183,7 @@ that it is closer to the water.</p>
 resize multiple images  </p>
 
 <p><a href="https://bdhacker.wordpress.com/2011/01/04/resize-multiple-images-in-a-
-folder- batch-image-resize-in-ubuntu/">Resize Multiple images in a folder (Batch Image Resize) in 
+folder-batch-image-resize-in-ubuntu/">Resize Multiple images in a folder (Batch Image Resize) in 
 Ubuntu</a></p>
 
 <p><br /><br />
@@ -279,7 +279,66 @@ Here is the final version with text description.</p>
 Another image where you can see <em>inside</em> the container with <code>wireframe</code> tool of 
 SketchUP  </p>
 
-<p><img src="/img/21-container-tappo+scheda_wireframe.jpg" alt="container wireframe" /></p>
+<p><img src="/img/21-container-tappo+scheda_wireframe.jpg" alt="container wireframe" />  </p>
+
+<p><br /><br />
+<br />  </p>
+
+<h4 id="my-openscad-experience"><strong>My OpenSCAD experience</strong></h4>
+
+<p>Here it is my first step with <a href="http://www.openscad.org/index.html">openSCAD</a> 
+and the comparison with SketchUP.  </p>
+
+<p><img src="/img/1st-step.jpg" alt="first step with openscad and comparison with sketchup" width="640" height="480" />  </p>
+
+<p>I like writing code and obtaining real 3D shapes :)<br />
+<br />  </p>
+
+<p>After the experience with SketchUP i feel more confident and after the first 
+image above i did directly the cylinder with some thickness.<br />
+With openSCAD you can obtain a cylinder doing the difference between two 
+cylinders which have different radius.  </p>
+
+<p><img src="/img/1-first-cylinder.jpg" alt="first cylinder with openscad" />  </p>
+
+<p><br /><br />
+After this i added the PART B (the parallelepiped).<br />
+You can see that inside there is no area where i can put my electronic board. I 
+will do in the next steps.  </p>
+
+<p><img src="/img/2-PART-B.jpg" alt="added parallelepiped to PART B" />  </p>
+
+<p><br /><br />
+Here below i added the hemispheric cap. I did the hemisphere doing the 
+difference between two sphere with different radius and <em>cutting</em> the half of 
+the spheres with a big cube. Here you can notice an error because there is an 
+hole in part B. I solved it with something like a cap..a little cylinder 
+located at the base of the cylinder in part B. I know this is not an elegant 
+solution and maybe it could be a problem. <strong>I will remember it later.</strong>
+Here is the code:  </p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">radiusBig</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+<span class="n">thickness</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="n">difference</span><span class="p">()</span> <span class="p">{</span>
+<span class="n">sphere</span><span class="p">(</span><span class="n">radiusBig</span><span class="p">);</span>
+<span class="n">sphere</span><span class="p">(</span><span class="n">radiusBig</span><span class="o">-</span><span class="n">thickness</span><span class="p">);</span>
+<span class="n">translate</span><span class="p">(</span><span class="o">[-</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="o">]</span><span class="p">)</span> <span class="n">cube</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<p><img src="/img/3-capPartB-error.jpg" alt="container with cap but with hole in part B" />   </p>
+
+<p><br /><br />
+Here below you can see the container (PART A + PART B) almost complete <em>BUT</em> 
+there is no room inside for the electronic.   </p>
+
+<p><img src="/img/4-partB+PartA_1.jpg" alt="quite complete but without room for electronic" /> <br />
+<br />  </p>
+
+<p>I did some space for the electronic inside the container :)<br />
+I used again the difference between two parallelepipeds.  </p>
+
+<p><img src="/img/6-partB+PartA_2.jpg" alt="complete with room for electronic" />   </p>
 
 
 	</div> 
