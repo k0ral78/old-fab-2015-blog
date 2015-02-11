@@ -340,6 +340,61 @@ I used again the difference between two parallelepipeds.  </p>
 
 <p><img src="/img/6-partB+PartA_2.jpg" alt="complete with room for electronic" />   </p>
 
+<p><br /><br />
+<br />  </p>
+
+<h4 id="my-antimony-experience"><strong>My Antimony experience</strong></h4>
+
+<p>I tried to install <a href="https://github.com/mkeeter/antimony">Antimony</a> and it was 
+not so easy.<br />
+I am running Linux Mint 17.1 Rebecca and i followed the Linux 
+instructions 
+<a href="https://github.com/mkeeter/antimony/blob/master/BUILDING.md">here</a>  </p>
+
+<p>I found some problems after the <code>make</code> and here below i list the problems and 
+the solutions i found.  </p>
+
+<p><br /><br />
+PROBLEM 1:<br />
+i had a problem of memory (i don’t remember the error message)</p>
+
+<p>SOLUTION 1:<br />
+My local instructor suggested me to use simply <code>make</code> and not <code>make -j8</code>  </p>
+
+<p><br /> 
+PROBLEM 2:  </p>
+
+<blockquote>
+  <p>fatal error: GL/gl.h: No such file or directory`  </p>
+</blockquote>
+
+<p>SOLUTION 2:  </p>
+
+<blockquote>
+  <p>sudo apt-get install mesa-common-dev`  </p>
+</blockquote>
+
+<p><a href="http://qt-project.org/forums/viewthread/26209">page where i found the solution</a></p>
+
+<p>OR <a href="http://qt-project.org/forums/viewthread/52795">another solution i have 
+NOT tested</a>  </p>
+
+<p><br /><br />
+PROBLEM 3:  </p>
+
+<blockquote>
+  <p>/usr/bin/ld: cannot find -lGL
+collect2: error: ld returned 1 exit status</p>
+</blockquote>
+
+<p>SOLUTION 3:  </p>
+
+<blockquote>
+  <p>sudo apt-get install libglu1-mesa-dev -y  </p>
+</blockquote>
+
+<p><a href="http://qt-project.org/forums/viewthread/23855">page where i found the solution</a></p>
+
 
 	</div> 
 </div>    
