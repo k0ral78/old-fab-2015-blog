@@ -6,32 +6,44 @@
 </description>
     <link>http://yourdomain.com//</link>
     <atom:link href="http://yourdomain.com//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 11 Feb 2015 13:45:11 +0100</pubDate>
-    <lastBuildDate>Wed, 11 Feb 2015 13:45:11 +0100</lastBuildDate>
+    <pubDate>Tue, 17 Feb 2015 11:31:18 +0100</pubDate>
+    <lastBuildDate>Tue, 17 Feb 2015 11:31:18 +0100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>Week 3 updates</title>
-        <description>&lt;p&gt;I definitely decided to follow this strategy to update my pages and to help 
-tracking my weekly job. Every thing that i add to the week’s page will be 
-added at the bottom of each week page even if i add it lately after the deadline 
-of the week. To point out my reviewers on what i really did during the current 
-week i added a news section where i will list what i will do in that particular 
-week.  &lt;/p&gt;
+        <description>&lt;p&gt;I definitely decided to follow this strategy to update my pages and to 
+help reviewers to track my weekly job. Every thing that I add to the week’s 
+page will be added at the bottom of each week page even if I add it after the 
+deadline of the week. Furthermore, every week page will have a summary at the 
+top. This summary will be a quick way to go to each section I add in the page. 
+Finally, to point out my reviewers on what I really did during the current 
+week, I added a news link in the homepage. The news page is a short list 
+about what I did in that particular week. I also wrote a TO-DO list as a quick 
+memo for what I will have to do.  &lt;/p&gt;
 
-&lt;p&gt;What i have done:  &lt;/p&gt;
+&lt;p&gt;What I have done:  &lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;added Antimony installation experience. You can find it at the bottom of the 
-page &lt;a href=&quot;/pages/week2.html&quot;&gt;week 2 assignment&lt;/a&gt;&lt;/li&gt;
+page &lt;a href=&quot;/pages/week2.html&quot;&gt;week 2 assignment&lt;/a&gt;  &lt;/li&gt;
+  &lt;li&gt;some experience with Inkscape &lt;a href=&quot;/pages/week3.html#my-vinyl-cutter-experience&quot;&gt;vinyl 
+cutter&lt;/a&gt; &lt;/li&gt;
+  &lt;li&gt;laser cutting experience &lt;a href=&quot;/pages/week3.html&quot;&gt;week 3 
+assignment&lt;/a&gt;  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;TO DO:  &lt;/p&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;modify milestones  &lt;/li&gt;
+  &lt;li&gt;add files to download&lt;/li&gt;
+&lt;/ul&gt;
+
 </description>
         <pubDate>Tue, 17 Feb 2015 11:00:00 +0100</pubDate>
-        <link>http://yourdomain.com//week3/2015/02/17/week2-updates-2.html</link>
-        <guid isPermaLink="true">http://yourdomain.com//week3/2015/02/17/week2-updates-2.html</guid>
+        <link>http://yourdomain.com//week3/2015/02/17/week3-updates.html</link>
+        <guid isPermaLink="true">http://yourdomain.com//week3/2015/02/17/week3-updates.html</guid>
         
         
         <category>week3</category>
