@@ -249,11 +249,12 @@ On the contrary, using AND with NOT operator you can do the opposite operation, 
 <code>PORTA &amp;= ~(1 &lt;&lt; PA7)</code><br />
 The line above is used to be sure that we start from a known condition, that is 0 in that pin.<br />
 <strong>DDRA</strong> is the Data Direction Register, you can find it at page 66 in the <a href="http://academy.cba.mit.edu/classes/embedded_programming/doc8183.pdf">data sheet</a> 
-<strong>PA7</strong> is the pin where my LED is connected. Basicly PA7 is a number and you can find it </p>
+<strong>PA7</strong> is the pin where my LED is connected. Basicly PA7 is a number and you can find it in avr/io.h.</p>
 
 <p>From now, I go on describing the code using <em>parametric #define macro</em> you can see in the first lines of my source code.<br />
-In order to use the button as input we do something similar we did with the LED:
-<code>input(input_direction, input_pin); 	// (DDRB &amp;= ~(1 &lt;&lt; PB2)) OPTIONAL!</code><br />
+In order to use the button as input we do something similar we did with the LED:  </p>
+
+<p><code>input(input_direction, input_pin); 	// (DDRB &amp;= ~(1 &lt;&lt; PB2)) OPTIONAL!</code><br />
 This could be optional because all the pins are in input mode even if you don’t do anything.  </p>
 
 <p>The <code>loop</code> is the section of the code that is repeated continuously. You can see <code>while(1)</code> in the code.<br />
@@ -265,11 +266,15 @@ We enable the LED pin with:<br />
 <code>set(led_port, led_pin);</code><br />
 we wait a little bit (the delay value is milliseconds):<br />
 <code>led_delay();</code><br />
-then until you press the button you will have the LED on:
-<code>while (0 == pin_test(input_pins,input_pin));</code><br />
-after you release the button the LED will be turned off:
-<code>clear(led_port, led_pin);</code><br />
+then until you press the button you will have the LED on:<br />
+<code>while (0 == pin_test(input_pins,input_pin));</code>  </p>
+
+<p>after you release the button the LED will be turned off:  </p>
+
+<p><code>clear(led_port, led_pin);</code><br />
 and the loop repeated continuously.  </p>
+
+<p><br />  </p>
 
 <h4 id="first-steps-with-interrupts"><strong>First steps with interrupts</strong></h4>
 
@@ -288,8 +293,7 @@ in <code>ISR(INT0_vect)</code> function.  </p>
 
 <p>The result is in the video below  </p>
 
-<p>http://youtu.be/1OBqpNwAheY
-&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/1OBqpNwAheY" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</p>
+<iframe width="420" height="315" src="https://www.youtube.com/embed/1OBqpNwAheY" frameborder="0" allowfullscreen=""></iframe>
 
 <h4 id="first-steps-with-psoc"><strong>First steps with PSoC</strong></h4>
 
