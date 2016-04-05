@@ -144,71 +144,71 @@
 
 	<div class="col-md-9"> 
 			<h2 id="principles-and-practices-project-management-jan-28"><strong>Principles and practices, project management (Jan 28)</strong></h2>
-<p><br />  </p>
+<p><br /></p>
 
 <h3 id="what-did-i-learn-this-week"><strong>What did I learn this week?</strong></h3>
 
 <h5 id="website"><strong>Website</strong></h5>
 
 <p>I always wanted to be able to create a simple website. Fab Academy has been the right personal motivation. I did a simple website with the essential information but I plan to expand it during this semester. I would have more time to make my blog nicer, but during this semester I’ll definitely do it. I always think how to do my things better. Usually when I finish doing my job I start thinking how to do better the same thing. Here below some of useful tips I found to understand website tools.<br />
-I used Jekyll, bootstrap and a text editor. In the beginning I had some difficulties to understand which is the role of Jekyll (what it does) and bootstrap. Now I can simply say that Jekyll create the baseline structure of the directories for a static website. It also takes as input the markdown (.md) files and convert them in html files to generate the static website. Bootstrap is a collection of lines of code ready to use. If you are looking for a navbar you can find some lines of code that you simply cut and paste into your .html file. I tried to use a theme as it was, but I was not satisfied. I wanted to understand the relation between every single part of the code lines and what I can see on my website. With the help of this <a href="http://learn.andrewmunsell.com/learn/jekyll-by-example/tutorial">tutorial</a> I understood how to build my personal theme.  </p>
+I used Jekyll, bootstrap and a text editor. In the beginning I had some difficulties to understand which is the role of Jekyll (what it does) and bootstrap. Now I can simply say that Jekyll create the baseline structure of the directories for a static website. It also takes as input the markdown (.md) files and convert them in html files to generate the static website. Bootstrap is a collection of lines of code ready to use. If you are looking for a navbar you can find some lines of code that you simply cut and paste into your .html file. I tried to use a theme as it was, but I was not satisfied. I wanted to understand the relation between every single part of the code lines and what I can see on my website. With the help of this <a href="http://learn.andrewmunsell.com/learn/jekyll-by-example/tutorial">tutorial</a> I understood how to build my personal theme.</p>
 
 <p>I also understood how useful is the word <code>layout</code> in the first lines of each .md file. You can build different layouts for your web pages (posts, default, news etc..) and all you have to do to choose a layout for your web page is to write the value of the variable <em>layout</em>. 
-For example:  </p>
+For example:</p>
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="ss">layout</span><span class="p">:</span> <span class="n">page</span></code></pre></div>
 
-<p>or if you want to change it to the default one you simply have to write:  </p>
+<p>or if you want to change it to the default one you simply have to write:</p>
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="ss">layout</span><span class="p">:</span> <span class="n">default</span></code></pre></div>
 
-<p>Every layout needs a html file which describes the structure of the layout. Inside the html files in <code>_layouts</code> directory you can find </p>
+<p>Every layout needs a html file which describes the structure of the layout. Inside the html files in <code>_layouts</code> directory you can find</p>
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">\{\</span><span class="o">%</span> <span class="kp">include</span> <span class="n">my</span><span class="o">-</span><span class="n">navbar</span><span class="o">.</span><span class="n">html</span> <span class="p">\</span><span class="o">%</span><span class="p">\}</span></code></pre></div>
 
 <p><code>include</code> is a simple way to avoid cut and paste every time the same code if you decide that (for example) the navigation bar of your website always has to be there in every single web page. In this way you haven’t to write the same code but only the same <code>include</code> line and Jekyll will do the job for you. Going ahead you can compose your layout choosing a sidebar, a footer and more. I saw you can also use <code>for</code> cycle but I will test it when I add the news section in my webpage.<br />
-Using this few notions I built my webpage with a navbar, a sidebar and a footer. In the navbar I wanted to add a dropdown menu and I learnt that I need to add one line for javascript:  </p>
+Using this few notions I built my webpage with a navbar, a sidebar and a footer. In the navbar I wanted to add a dropdown menu and I learnt that I need to add one line for javascript:</p>
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="n">script</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;/js/bootstrap.min.js&quot;</span><span class="o">&gt;&lt;</span><span class="sr">/script&gt;`</span></code></pre></div>
 
 <p>In the line above you can also see <code>site.baseurl</code> which is a global variable you can find in <code>_config.yml</code> file which is used by Jekyll. This url will be the root of my web page, that is the one in my fab academy archive.<br />
-There also two important lines inside the template:  </p>
+There also two important lines inside the template:</p>
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span> <span class="n">type</span><span class="o">=</span><span class="s2">&quot;text/css&quot;</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;/css/bootstrap.min.css&quot;</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span> <span class="n">type</span><span class="o">=</span><span class="s2">&quot;text/css&quot;</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;/css/bootstrap-theme.min.css&quot;</span><span class="o">&gt;</span></code></pre></div>
 
-<p>These are useful to use style sheets (CSS). I learnt something about CSS using the tutorial below. There are also other useful links I used to understand better jekyll and bootstrap.  </p>
+<p>These are useful to use style sheets (CSS). I learnt something about CSS using the tutorial below. There are also other useful links I used to understand better jekyll and bootstrap.</p>
 
 <ul>
   <li>HTML5 and CSS: I have done this <a href="http://www.codecademy.com/en/tracks/web">tutorial</a> and I found it very useful.</li>
-  <li>I found some difficulties installing Jekyll on Linux Mint, but after installing <em>ruby-full</em> following these <a href="https://www.ruby-lang.org/en/documentation/installation/#apt">instructions</a> I solved it.  </li>
+  <li>I found some difficulties installing Jekyll on Linux Mint, but after installing <em>ruby-full</em> following these <a href="https://www.ruby-lang.org/en/documentation/installation/#apt">instructions</a> I solved it.</li>
   <li>This has been a very useful tutorial to <a href="http://learn.andrewmunsell.com/learn/jekyll-by-example/tutorial">understand jekyll step-by-step</a></li>
-  <li>Bootstrap: at first I was a little bit confused but I found this <a href="www.tutorialrepublic.com/twitter-bootstrap-tutorial/">tutorial</a> and it was very useful. It is a step-by-step guide and there are many little interactive code examples.  </li>
+  <li>Bootstrap: at first I was a little bit confused but I found this <a href="www.tutorialrepublic.com/twitter-bootstrap-tutorial/">tutorial</a> and it was very useful. It is a step-by-step guide and there are many little interactive code examples.</li>
 </ul>
 
 <p>Finally, I wanted to add a little detail in sidebar to underline that assignments are homework. I added the pencil icon using:<br />
 <code>class="glyphicon glyphicon-home"</code><br />
 I think it’s really nice <span class="glyphicon glyphicon-thumbs-up"></span></p>
 
-<p><br />  </p>
+<p><br /></p>
 
 <h5 id="control-version-systems"><strong>Control Version Systems</strong></h5>
 
-<p>With <strong>Github</strong> and <strong>Mercurial</strong> I had some little problems but I solved them with some pratice and the tutorial I followed in the <a href="http://fabacademy.fablabcascina.org/classes/index.html">pre-class lessons</a> by our local instructor. </p>
+<p>With <strong>Github</strong> and <strong>Mercurial</strong> I had some little problems but I solved them with some pratice and the tutorial I followed in the <a href="http://fabacademy.fablabcascina.org/classes/index.html">pre-class lessons</a> by our local instructor.</p>
 
 <h5 id="video-lesson"><strong>Video lesson</strong></h5>
 
-<p>I loved the way of thinking of Neil about working at “low level” also because I like to understand how things work in depth. I liked working with a simple text editor to create the website. I chose <a href="http://www.geany.org/">Geany</a> but I also like nano on command-line. I like command-line because I started working on  old <a href="http://upload.wikimedia.org/wikipedia/commons/9/9d/Commodore64.jpg">Commode64</a> and I remember when I had an old PC <a href="http://www.computergraffiti.it/pcs286/pcs286g.jpg">Olivetti 286</a>. Afterwards, obviuosly, I played sometime with <a href="http://it.wikipedia.org/wiki/MS-DOS">MS-DOS</a> and then a little bit with Linux. Now I really want to go in depth with Linux.  </p>
+<p>I loved the way of thinking of Neil about working at “low level” also because I like to understand how things work in depth. I liked working with a simple text editor to create the website. I chose <a href="http://www.geany.org/">Geany</a> but I also like nano on command-line. I like command-line because I started working on  old <a href="http://upload.wikimedia.org/wikipedia/commons/9/9d/Commodore64.jpg">Commode64</a> and I remember when I had an old PC <a href="http://www.computergraffiti.it/pcs286/pcs286g.jpg">Olivetti 286</a>. Afterwards, obviuosly, I played sometime with <a href="http://it.wikipedia.org/wiki/MS-DOS">MS-DOS</a> and then a little bit with Linux. Now I really want to go in depth with Linux.</p>
 
-<p><br />  </p>
+<p><br /></p>
 
 <h4 id="something-about-project-ideas"><strong>Something about project ideas</strong></h4>
 
 <p>I found some difficulties about choosing my final project just because I’d like to do many things :)<br />
-Here it is the list of the projects I thought:  </p>
+Here it is the list of the projects I thought:</p>
 
 <ul>
-  <li><strong>Auto sat finder tracking</strong>: a platform on which you can put a dish antenna and automatically it point to the right satellite. </li>
+  <li><strong>Auto sat finder tracking</strong>: a platform on which you can put a dish antenna and automatically it point to the right satellite.</li>
   <li><strong>Portable radio bridge</strong>: I thought about something very light to carry. A mountable light trellis made of wood, something like a kit. Eventually with motors to help to lift up higher. Obviously an auto point system with the other far end of radio bridge.</li>
   <li>A <strong>ground vehicle</strong>, a mobile platform which is able to go even in the worst countryside. Eventually autonomous with an auto “go back home” system when battery goes low. Obviously it has to stream video in real-time and you also can drive it remotely.</li>
   <li>A  <strong>wireless rechargeable system</strong>: I like the idea to go in depth on induction recharge.</li>

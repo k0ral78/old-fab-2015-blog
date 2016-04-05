@@ -148,7 +148,7 @@
 <p>This week we had to read a data sheet. Data sheets are not so easy to read also because they are written in technical language. You need patience..:) They are full of information and it is easy getting confused with them. I think that you have to focus on what you really need ignoring the rest. Otherwise it could be easy getting frustrated because of you don’t understand the most of what it is written :) Moreover, this week we had to program the Hello board we did last week. Thanks to our local instructor advices I did a little example even using the interrupts. In the end, I did a little experience with PSoC board because maybe it could be useful for my final project.</p>
 
 <p><br /><br />
-Summary:  </p>
+Summary:</p>
 
 <ul>
   <li><a href="#setup">Setup</a></li>
@@ -160,27 +160,27 @@ Summary:  </p>
   <li><a href="#project-files">Files</a></li>
 </ul>
 
-<p><br />  </p>
+<p><br /></p>
 
 <h4 id="setup"><strong>Setup</strong></h4>
 
-<p>Under Linux (I use Linux Mint) I had to install these packages.  </p>
+<p>Under Linux (I use Linux Mint) I had to install these packages.</p>
 
 <blockquote>
   <p>sudo apt-get install gcc-avr<br />
 sudo apt-get install avrdude<br />
-sudo apt-get install avr-libc  </p>
+sudo apt-get install avr-libc</p>
 </blockquote>
 
 <h4 id="makefile"><strong>Makefile</strong></h4>
 
-<p>From Wikipedia:  </p>
+<p>From Wikipedia:</p>
 
 <blockquote>
   <p>Makefile(s) are text files written in a certain prescribed syntax. Together with Make Utility, it helps build a software from its source files, a way to organize code, and its compilation and linking.</p>
 </blockquote>
 
-<p>Our local instructor helped us to build a simple Makefile:  </p>
+<p>Our local instructor helped us to build a simple Makefile:</p>
 
 <pre><code>PROJECT=blink
 SOURCES=$(PROJECT).c
@@ -203,44 +203,44 @@ program-usbtiny-fuses: $(PROJECT).hex
 	avrdude -p t44 -P usb -c usbtiny -U lfuse:w:0x5E:m
 </code></pre>
 
-<p>The first lines are the variables. <code>CFLAGS</code> are some options useful when the compiler (gcc-avr) will generate the .out file. The compiler needs the .out file to create the .hex file which is the file that we will upload into our board. When I write <em>the compiler needs</em> I am highlighting a chain of dependencies:  </p>
+<p>The first lines are the variables. <code>CFLAGS</code> are some options useful when the compiler (gcc-avr) will generate the .out file. The compiler needs the .out file to create the .hex file which is the file that we will upload into our board. When I write <em>the compiler needs</em> I am highlighting a chain of dependencies:</p>
 
 <ul>
   <li>.out file needs .c file (the source code)</li>
-  <li>.hex file needs .out file.  </li>
+  <li>.hex file needs .out file.</li>
 </ul>
 
 <p>Using Makefile helps us with the management of these dependencies. <strong>Be careful</strong> that those spaces under the lines with $(PROJECT) are not useless. If you don’t use them you will get an error of this kind:<br />
 <code>missing separator. stop.</code></p>
 
 <p>The indented lines are the real commands you can also type in command line accurately replacing the variables.<br />
-<code>program-usbtiny</code> is what you need to upload the code into the board. <strong>Be careful</strong> that maybe you need root privileges to upload the code. I needed to use sudo: <code>sudo make program-usbtiny</code>.  </p>
+<code>program-usbtiny</code> is what you need to upload the code into the board. <strong>Be careful</strong> that maybe you need root privileges to upload the code. I needed to use sudo: <code>sudo make program-usbtiny</code>.</p>
 
-<p><img src="/img/7th-week/emb-prog1.jpg" alt="program usbtiny error" />  </p>
+<p><img src="/img/7th-week/emb-prog1.jpg" alt="program usbtiny error" /></p>
 
-<p><code>program-usbtiny-fuses</code> is useful to write the fuses on the attiny.  </p>
+<p><code>program-usbtiny-fuses</code> is useful to write the fuses on the attiny.</p>
 
-<p><br />  </p>
+<p><br /></p>
 
 <h4 id="button-and-led-code"><strong>Button and led code</strong></h4>
 
 <p>I started with <a href="http://academy.cba.mit.edu/classes/embedded_programming/hello.arduino.328P.blink.c">this code</a> reading the datasheet to understand how to blink the LED. Then I studied <a href="http://academy.cba.mit.edu/classes/input_devices/button/hello.button.45.c">this code</a> to understand how to use the button. Obviously you need to check the pins where your button and LED are connected modifying the source code. At the end of this page you will find the simple code I did.<br />
-Let’s start with the LED. It is crucial to understand that in order to program a microcontroller you need to set/unset some registers. You have to imagine them like many little switches. You can enable/disable them writing 1 or 0 into the right memory location. You also need to know some basics about binary logic and bitwise operators in C language. It could be helpful this <a href="http://www.electronics-tutorials.ws/boolean/bool_7.html">page</a> where you can find the truth tables to understand how AND, OR and other boolean operators work. All the values of the microcontroller “switches” give a particular configuration according to what you want to do with it.  </p>
+Let’s start with the LED. It is crucial to understand that in order to program a microcontroller you need to set/unset some registers. You have to imagine them like many little switches. You can enable/disable them writing 1 or 0 into the right memory location. You also need to know some basics about binary logic and bitwise operators in C language. It could be helpful this <a href="http://www.electronics-tutorials.ws/boolean/bool_7.html">page</a> where you can find the truth tables to understand how AND, OR and other boolean operators work. All the values of the microcontroller “switches” give a particular configuration according to what you want to do with it.</p>
 
 <p>Before I describe my code example it has to be clear how to use <code>#define</code>. You can find details <a href="http://www.cprogramming.com/reference/preprocessor/define.html">here</a>.<br />
 Using my example, I need to tell to the microcontroller that the pin PA7 (you can find it on the Eagle schematic at the end of this page <a href="/pages/week6.html">Electronic design</a>) is where I connected my LED then I want enable that pin as output. Relating to the Attiny44, you also have to tell which is the <em>PORT</em> your pin belongs to: PORTA or PORTB.<br />
 The default value written for all pins is 0, that is all pins are inputs. Basicly in order to enable a pin as output I have to write 1 into it. You can do it with OR logic operator:<br />
 <code>DDRA |= (1 &lt;&lt; PA7)</code><br />
-With <code>1 &lt;&lt; PA7</code> you take a register (in our case register length is 8 bit) that you can imagine with all zeroes:  </p>
+With <code>1 &lt;&lt; PA7</code> you take a register (in our case register length is 8 bit) that you can imagine with all zeroes:</p>
 
 <blockquote>
-  <p>00000000  </p>
+  <p>00000000</p>
 </blockquote>
 
-<p>then you put the 1 on the first digit on the right:  </p>
+<p>then you put the 1 on the first digit on the right:</p>
 
 <blockquote>
-  <p>00000001  </p>
+  <p>00000001</p>
 </blockquote>
 
 <p>and with <code>&lt;&lt;</code> you say to shift that <code>1</code> for PA7 positions. How much is PA7 is written in <code>avr/io.h</code>.<br />
@@ -252,13 +252,13 @@ The line above is used to be sure that we start from a known condition, that is 
 <strong>PA7</strong> is the pin where my LED is connected. Basicly PA7 is a number and you can find it in avr/io.h.</p>
 
 <p>From now, I go on describing the code using <em>parametric #define macro</em> you can see in the first lines of my source code.<br />
-In order to use the button as input we do something similar we did with the LED:  </p>
+In order to use the button as input we do something similar we did with the LED:</p>
 
 <p><code>input(input_direction, input_pin); 	// (DDRB &amp;= ~(1 &lt;&lt; PB2)) OPTIONAL!</code><br />
-This could be optional because all the pins are in input mode even if you don’t do anything.  </p>
+This could be optional because all the pins are in input mode even if you don’t do anything.</p>
 
 <p>The <code>loop</code> is the section of the code that is repeated continuously. You can see <code>while(1)</code> in the code.<br />
-Inside the loop you can see the line  </p>
+Inside the loop you can see the line</p>
 
 <p><code>while (0 != pin_test(input_pins,input_pin));</code><br />
 Here you do the logic AND between input_pins (PORTB) and the input_pin (1 « PB2) where the button is connected. If you don’t push the button the result of <em>pin_test</em> macro is a value different from 0 then you will have a continuous loop in that line. When you push the button you give to the input pin a voltage near zero which is interpreted by the microcontroller logic as 0. Now, the result of <em>pin_test</em> macro is a value equal to 0 then the next code line will be executed.<br />
@@ -267,18 +267,18 @@ We enable the LED pin with:<br />
 we wait a little bit (the delay value is milliseconds):<br />
 <code>led_delay();</code><br />
 then until you press the button you will have the LED on:<br />
-<code>while (0 == pin_test(input_pins,input_pin));</code>  </p>
+<code>while (0 == pin_test(input_pins,input_pin));</code></p>
 
-<p>after you release the button the LED will be turned off:  </p>
+<p>after you release the button the LED will be turned off:</p>
 
 <p><code>clear(led_port, led_pin);</code><br />
-and the loop repeated continuously.  </p>
+and the loop repeated continuously.</p>
 
-<p><br />  </p>
+<p><br /></p>
 
 <h4 id="first-steps-with-interrupts"><strong>First steps with interrupts</strong></h4>
 
-<p>After I understood how to turn on the LED pushing the button I’d like start/stop the blinking pushing the button. It could look a simple job but it hides some tricky problems. I was thinking about it but if you don’t know how to use the interrupts it you have to do in a similar way written in this <a href="http://playground.arduino.cc/Code/AdvButton">Advance button library</a>. </p>
+<p>After I understood how to turn on the LED pushing the button I’d like start/stop the blinking pushing the button. It could look a simple job but it hides some tricky problems. I was thinking about it but if you don’t know how to use the interrupts it you have to do in a similar way written in this <a href="http://playground.arduino.cc/Code/AdvButton">Advance button library</a>.</p>
 
 <p>In order to understand the example code that our local instructor show us (on the book <em>Make AVR Programming</em>) you have to read page 50 of the <a href="http://academy.cba.mit.edu/classes/embedded_programming/doc8183.pdf">manual</a>.<br />
 In the second example I did, what is important is the use of interrupts. They are some little pieces of code that are executed every time the microcontroller receives a signal in some dedicated pins. The important thing is that the microcontroller suspends everything it is executing to execute that little piece of code. For example, luckily, I had the button in a pin where I can use interrupt. In order to enable it I had to use:<br />
@@ -289,42 +289,42 @@ If you want to use the interrupt you have also to enable the I-bit in the Status
 <code>sei(); 			// set global interrupt when enable it. (enable SREG. we use I bit)</code><br />
 What I tried to experiment is to start/stop the blinking of the LED inverting the direction of LED port every time I pushed the button. You can see it in this line: 
 <code>led_direction ^= led_pin;</code><br />
-in <code>ISR(INT0_vect)</code> function.  </p>
+in <code>ISR(INT0_vect)</code> function.</p>
 
-<p>The result is in the video below  </p>
+<p>The result is in the video below</p>
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/1OBqpNwAheY" frameborder="0" allowfullscreen=""></iframe>
 
-<p><br /> </p>
+<p><br /></p>
 
 <h4 id="first-steps-with-psoc"><strong>First steps with PSoC</strong></h4>
 
 <p>This is the PSoC 4 CY8CKIT-049 4xxx Prototyping Kits<br />
-<img src="http://www.cypress.com/fckimages/myresources/CY8CKit-049_full_img.jpg" height="auto" width="600" alt="program usbtiny error" />  </p>
+<img src="http://www.cypress.com/fckimages/myresources/CY8CKit-049_full_img.jpg" height="auto" width="600" alt="program usbtiny error" /></p>
 
 <p>I followed this <a href="http://www.cypress.com/?docID=48142">guide</a> doing first examples. Even if I did these examples with success I feel that I have to go in depth to understand what I can really do with this board and which are its pros and cons.<br />
-Here below where you can modify the delay of blinking LED. </p>
+Here below where you can modify the delay of blinking LED.</p>
 
-<p><img src="/img/7th-week/psoc/psoc1.jpg" alt="psoc - delay value" />  </p>
+<p><img src="/img/7th-week/psoc/psoc1.jpg" alt="psoc - delay value" /></p>
 
-<p>In order to get the board ready to upload your code you have to push the button (there is only one button) <strong>while</strong> you connect it to the USB port. You will see the blue LED blinking fast.  </p>
+<p>In order to get the board ready to upload your code you have to push the button (there is only one button) <strong>while</strong> you connect it to the USB port. You will see the blue LED blinking fast.</p>
 
-<p><img src="/img/7th-week/psoc/psoc2.jpg" alt="psoc - first successful upload" />  </p>
+<p><img src="/img/7th-week/psoc/psoc2.jpg" alt="psoc - first successful upload" /></p>
 
-<p>Here below the example about using the UART. The characters are duplicated because of <em>local echo</em> option in PutTy. In this way you can see what you type and what you receive from the board.  </p>
+<p>Here below the example about using the UART. The characters are duplicated because of <em>local echo</em> option in PutTy. In this way you can see what you type and what you receive from the board.</p>
 
-<p><img src="/img/7th-week/psoc/psoc3.jpg" alt="psoc - UART code example" />  </p>
+<p><img src="/img/7th-week/psoc/psoc3.jpg" alt="psoc - UART code example" /></p>
 
-<p>I am curious about going in depth with this board. I hope I will find more simple examples :) </p>
+<p>I am curious about going in depth with this board. I hope I will find more simple examples :)</p>
 
 <h4 id="conclusions"><strong>Conclusions</strong></h4>
-<p>I like programming and I am curious about programming a little computer like a microcontroller. I really understood that I have to study more about programming and expecially embedded programming. I’d like to explore more the world of embedded programming but I am a bit lost in all the documents you can find. I need a guide but not a boring one, something with many funny examples in order to learn while enjoying :) </p>
+<p>I like programming and I am curious about programming a little computer like a microcontroller. I really understood that I have to study more about programming and expecially embedded programming. I’d like to explore more the world of embedded programming but I am a bit lost in all the documents you can find. I need a guide but not a boring one, something with many funny examples in order to learn while enjoying :)</p>
 
 <h4 id="project-files"><strong>Project files</strong></h4>
-<p>Here are the <a href="/files/7th-week/7th-week-files.zip">files</a>. You can find:  </p>
+<p>Here are the <a href="/files/7th-week/7th-week-files.zip">files</a>. You can find:</p>
 
 <ul>
-  <li>first code example with LED and button </li>
+  <li>first code example with LED and button</li>
   <li>second code example using interrupts</li>
 </ul>
 
